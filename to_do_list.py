@@ -34,7 +34,7 @@ def add_task():
 	user_add_input = input("Do you want to show the current tasks? <Y,N> ").strip().upper()
 	if user_add_input == "Y":
 		show_tasks()
-	elif show_tasks == "N":
+	elif user_add_input == "N":
 		pass
 	else:
 		print("Invalid choice!")
