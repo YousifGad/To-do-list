@@ -10,6 +10,7 @@ input_message = """Options:
 options = ["add","a","show","s","mark","m","delete","d","delete completed","dc","quit","q"]
 
 import sqlite3
+from termcolor import colored
 
 db = sqlite3.connect("tasks.db")
 cr = db.cursor()
@@ -105,7 +106,7 @@ def delete_completed():
 		print("Completed tasks deleted successfully!")
 
 while True:
-	user_input = input(input_message).strip().lower()
+	user_input = input(colored(input_message, "blue")).strip().lower()
 
 	if user_input in options:
 		if user_input in ["add","a"]:
@@ -125,9 +126,7 @@ while True:
 
 		else:
 			print("Closed")
-
-		commit_and_close()
-
-		break
+			commit_and_close()
+			break
 	else:
 		print("Please select a valid option!")
